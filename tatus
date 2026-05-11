@@ -1,0 +1,239 @@
+[33mcommit 009557da3e1668f31ccf4b8a5682f67fb268407f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Ahmad Heryansyah <ahmadheryansyah22@gmail.com>
+Date:   Tue May 12 02:42:04 2026 +0700
+
+    Add MECHA database migrations (10 tables)
+
+[33mcommit cb6dd7b3faa7e0681bf6b79cc183b50c99652e3c[m[33m ([m[1;33mtag: [m[1;33mv13.5.0[m[33m)[m
+Author: Wendell Adriel <wendelladriel.ti@gmail.com>
+Date:   Thu Apr 30 12:32:17 2026 +0100
+
+    Use Vite font plugin for application fonts (#6806)
+
+[33mcommit 141a1a3c9bab41eb08ea11b23d7e0096ef90358c[m
+Author: taylorotwell <463230+taylorotwell@users.noreply.github.com>
+Date:   Tue Apr 28 17:28:33 2026 +0000
+
+    Update CHANGELOG
+
+[33mcommit 8cbc95406ea34b5a82c9c18a8f160a6b09d14ab2[m[33m ([m[1;33mtag: [m[1;33mv13.4.0[m[33m)[m
+Author: nuno maduro <enunomaduro@gmail.com>
+Date:   Tue Apr 28 18:15:01 2026 +0100
+
+    [13.x] Adds pao by default (#6802)
+    
+    * Adds pao by default
+    
+    * Moves `pao` under laravel
+
+[33mcommit a9fec26463bd62c220702c5d1e9f087c3ca67078[m
+Author: Jesper Noordsij <45041769+jnoordsij@users.noreply.github.com>
+Date:   Thu Apr 23 15:38:34 2026 +0200
+
+    Add @no_additional_args to composer test script config clear (#6799)
+
+[33mcommit 15bd0b1954933012f6895db95718ae86178fe19a[m
+Author: taylorotwell <463230+taylorotwell@users.noreply.github.com>
+Date:   Tue Apr 21 14:20:19 2026 +0000
+
+    Update CHANGELOG
+
+[33mcommit 8ad7826f56d9e044cc3117d82d61c0e2282ce839[m[33m ([m[1;33mtag: [m[1;33mv13.3.0[m[33m)[m
+Author: Taylor Otwell <taylor@laravel.com>
+Date:   Thu Apr 16 08:58:08 2026 -0500
+
+    increase attempt count
+
+[33mcommit 64c91e5ff90bff5b1b989f79a93885a91622abc2[m
+Author: Amdadul Haq <amdadulhaq781@gmail.com>
+Date:   Thu Apr 16 19:42:25 2026 +0600
+
+    [13x] Add .codex to .gitignore (#6793)
+    
+    * Add .codex to .gitignore
+    
+    * Update .gitignore
+    
+    ---------
+    
+    Co-authored-by: Taylor Otwell <taylor@laravel.com>
+
+[33mcommit de68560d02a252cb1cee04124c57444c6bd92838[m
+Author: Samuel <ratto_trash@hotmail.it>
+Date:   Wed Apr 15 16:50:24 2026 +0200
+
+    Update changelog link to Laravel framework repo (#6790)
+
+[33mcommit 9d195133e42e073b4a7d9f476d74ef9ab08edfa9[m
+Author: Leonardo Yanes Batista <leo95batista@gmail.com>
+Date:   Wed Apr 15 09:06:43 2026 -0400
+
+    enable npm audit by default (#6788)
+
+[33mcommit d2f4eef1f9c14822e7de1fac068d331dfaefddda[m
+Author: taylorotwell <463230+taylorotwell@users.noreply.github.com>
+Date:   Tue Apr 14 14:39:40 2026 +0000
+
+    Update CHANGELOG
+
+[33mcommit 0e7856aa916c66f79b2a6dcd41087fd50a688aff[m[33m ([m[1;33mtag: [m[1;33mv13.2.0[m[33m)[m
+Author: Markus Machatschek <markus.machatschek@hey.com>
+Date:   Thu Apr 9 15:35:25 2026 +0200
+
+    cs: support the docker file name conventions with yaml/yml and compose/docker-compose (#6786)
+
+[33mcommit b5b70435e10b0795a795d43c890efc04ffc0c69c[m
+Author: Dominik Rajkowski <dom.rajkowski@gmail.com>
+Date:   Tue Apr 7 20:01:33 2026 +0200
+
+    Remove '.fleet' from .gitignore (#6783)
+    
+    As JetBrains Fleet is officially dead, this is no longer needed.
+
+[33mcommit def2faf24e4801c9ae8c44fc5f852de699710c44[m
+Author: Binu A Abraham <workwithbinu@gmail.com>
+Date:   Sun Apr 5 18:11:43 2026 +0400
+
+    Add /.cursor/ to .gitignore (#6782)
+
+[33mcommit 371cc0b817cb9cdf4958277dbb02f0e776ae25e5[m
+Author: Wendell Adriel <wendelladriel.ti@gmail.com>
+Date:   Wed Apr 1 16:29:00 2026 +0100
+
+    Remove axios and enable ignore-scripts (#6778)
+    
+    * Remove axios and enable ignore-scripts
+    
+    * Removing empty comment
+    
+    * Apply fixes from StyleCI
+    
+    * Remove bootstrap.js file and add empty comment on app.js
+    
+    ---------
+    
+    Co-authored-by: StyleCI Bot <bot@styleci.io>
+    Co-authored-by: Pushpak Chhajed <pushpak1300@gmail.com>
+
+[33mcommit ba9c3e83bac9cb90da48806c8e749c4ac8be10ee[m
+Author: nunomaduro <5457236+nunomaduro@users.noreply.github.com>
+Date:   Tue Mar 31 20:43:38 2026 +0000
+
+    Update CHANGELOG
+
+[33mcommit 5c855038d032b9969067f01e53109704dbd28b2f[m[33m ([m[1;33mtag: [m[1;33mv13.1.2[m[33m)[m
+Merge: d1c59653 72ee3ca3
+Author: nuno maduro <enunomaduro@gmail.com>
+Date:   Tue Mar 31 21:42:11 2026 +0100
+
+    Merge pull request #6779 from aziyan99/chore/fix-missing-comma-in-package-dot-json
+    
+    Add missing comma in axios
+
+[33mcommit 72ee3ca3b9926b24b8b947556997c057d53877c1[m
+Author: aziyan99 <rajaazian08@gmail.com>
+Date:   Tue Mar 31 22:52:33 2026 +0700
+
+    chore: add missing comma in axios
+
+[33mcommit d1c596533f4bd12198d5855b5d2358437b860bd7[m
+Author: Mior Muhammad Zaki <crynobone@gmail.com>
+Date:   Tue Mar 31 22:53:53 2026 +0800
+
+    Prevents installed package from executing malicious code via `postinstall` (#6777)
+
+[33mcommit e7fc00c74719d80a15aca462373c9024b0f86517[m
+Author: taylorotwell <463230+taylorotwell@users.noreply.github.com>
+Date:   Tue Mar 31 13:50:21 2026 +0000
+
+    Update CHANGELOG
+
+[33mcommit 02ec81556253ffe6aaba1468cb4244f8b59ed853[m[33m ([m[1;33mtag: [m[1;33mv13.1.1[m[33m)[m
+Author: NickSdot <32384907+NickSdot@users.noreply.github.com>
+Date:   Tue Mar 31 21:49:40 2026 +0800
+
+    [security] pin axios version (#6776)
+    
+    Active supply chain attack https://github.com/axios/axios/issues/10604
+
+[33mcommit 83db153670f42c192e7253b5c3cb59492bc3701b[m
+Author: Cegem-360 <144362694+Cegem-360@users.noreply.github.com>
+Date:   Fri Mar 27 18:18:01 2026 +0100
+
+    Update .gitignore (#6774)
+    
+    Laravel ide helper is the most used IDE support package for laravel more than 120M download and whitout is in VScode and PHP storm is getting Powerfull helpers.
+
+[33mcommit acd59b717aee2d21384fd73e75a647c36875a7a8[m
+Author: taylorotwell <463230+taylorotwell@users.noreply.github.com>
+Date:   Wed Mar 18 16:33:13 2026 +0000
+
+    Update CHANGELOG
+
+[33mcommit 137a99e9606a255a016d12a7860685101f56cda2[m[33m ([m[1;33mtag: [m[1;33mv13.1.0[m[33m)[m
+Author: Taylor Otwell <taylor@laravel.com>
+Date:   Wed Mar 18 11:32:30 2026 -0500
+
+    update vite
+
+[33mcommit a8306542d1caa317bd2e42aca633094fb142be0d[m
+Author: Jesper Noordsij <45041769+jnoordsij@users.noreply.github.com>
+Date:   Tue Mar 17 17:41:24 2026 +0100
+
+    Change back minimum-stability to stable (#6766)
+
+[33mcommit 01f698ee4df24910dda0475092b698888b050b6d[m[33m ([m[1;33mtag: [m[1;33mv13.0.0[m[33m)[m
+Author: Taylor Otwell <taylor@laravel.com>
+Date:   Tue Mar 17 08:43:00 2026 -0500
+
+    update migration
+
+[33mcommit c21f6c6ddcaa7781375de56c1c5706e0f9a534c5[m
+Merge: 0712d7b7 77da0b9a
+Author: Mior Muhammad Zaki <crynobone@gmail.com>
+Date:   Mon Mar 16 22:38:30 2026 +0800
+
+    Merge pull request #6765 from laravel/12.x
+    
+    Sync `13.x` branch from `12.x`
+
+[33mcommit 77da0b9a8db30e3858f626d4980224936c37b960[m
+Author: taylorotwell <463230+taylorotwell@users.noreply.github.com>
+Date:   Sat Mar 14 16:54:44 2026 +0000
+
+    Update CHANGELOG
+
+[33mcommit 945f4e5a9fd3695dc0ee512f497c650fb82cfbb8[m[33m ([m[1;33mtag: [m[1;33mv12.12.2[m[33m)[m
+Author: Taylor Otwell <taylor@laravel.com>
+Date:   Sat Mar 14 11:54:00 2026 -0500
+
+    Revert index
+
+[33mcommit cd2bde56a0ee391bfcab3e23f5882af291e0e030[m
+Author: Hamed EL-Asma <35032996+hamedelasma@users.noreply.github.com>
+Date:   Wed Mar 11 16:14:03 2026 +0200
+
+    [12.x] Add `APP_NAME` fallback in Slack log channel username (#6762)
+    
+    The Slack log channel username falls back to the generic "Laravel Log"
+    when unset. This updates the fallback to use `APP_NAME` instead,
+    making it easier to identify which application is sending logs when
+    multiple Laravel apps post to the same Slack channel.
+    
+    Follows the same pattern as #6755 which added an `APP_NAME` fallback
+    in the mail config.
+
+[33mcommit 214636dd192e559cdd53f981f19bec362c16ecec[m
+Author: taylorotwell <463230+taylorotwell@users.noreply.github.com>
+Date:   Tue Mar 10 20:25:22 2026 +0000
+
+    Update CHANGELOG
+
+[33mcommit 0712d7b725f79feb80c9aec14b165a03f939fde1[m
+Merge: 089ae1c3 f1f2befa
+Author: Taylor Otwell <taylor@laravel.com>
+Date:   Tue Mar 10 15:04:58 2026 -0500
+
+    fix conflicts
+
+[33mcommit f1f2befaa81a4d41cc5fa419416e9ea858dc565d[m[33m ([m[1;33mtag: [m[1;33mv12.12.1
