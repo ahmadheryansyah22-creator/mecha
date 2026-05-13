@@ -11,7 +11,7 @@ class VehicleController extends Controller
     public function index()
     {
         try {
-            $vehicles = Vehicle::with(['bengkel', 'diagnostics', 'orders', 'aiDiagnostics'])->paginate(10);
+            $vehicles = Vehicle::with(['bengkel', 'diagnostics', 'orders'])->paginate(10);
             return response()->json([
                 'success' => true,
                 'message' => 'Data vehicles retrieved successfully',
@@ -64,7 +64,7 @@ class VehicleController extends Controller
     public function show(Vehicle $vehicle)
     {
         try {
-            $vehicle->load(['bengkel', 'diagnostics', 'orders', 'aiDiagnostics']);
+            $vehicle->load(['bengkel', 'diagnostics', 'orders']);
             return response()->json([
                 'success' => true,
                 'message' => 'Vehicle retrieved successfully',
