@@ -6,30 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Vehicle extends Model
+class Mechanic extends Model
 {
     protected $fillable = [
         'bengkel_id',
-        'license_plate',
-        'owner_name',
-        'owner_phone',
-        'owner_email',
-        'vehicle_type',
-        'brand',
-        'model',
-        'year',
-        'color',
-        'vin',
-        'mileage',
-        'notes',
+        'name',
+        'phone',
+        'email',
+        'expertise',
+        'salary',
+        'experience_years',
+        'certification',
         'status',
-        'last_service',
+        'notes',
+        'join_date',
     ];
 
     protected $casts = [
-        'year' => 'integer',
-        'mileage' => 'integer',
-        'last_service' => 'datetime',
+        'salary' => 'decimal:2',
+        'join_date' => 'date',
     ];
 
     public function bengkel(): BelongsTo
@@ -47,8 +42,8 @@ class Vehicle extends Model
         return $this->hasMany(Order::class);
     }
 
-    public function aiDiagnostics(): HasMany
+    public function ratings(): HasMany
     {
-        return $this->hasMany(AiDiagnostic::class);
+        return $this->hasMany(Rating::class);
     }
 }
