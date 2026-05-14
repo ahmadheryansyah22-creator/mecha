@@ -1,0 +1,1592 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "MECHA API",
+        "description": "API untuk Sistem Manajemen Bengkel Mobil",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/api/ai-diagnostics": {
+            "get": {
+                "tags": [
+                    "AI Diagnostic"
+                ],
+                "summary": "Get semua AI diagnostics",
+                "operationId": "381d642a016899c4497d8902483b1b61",
+                "responses": {
+                    "200": {
+                        "description": "Data AI diagnostics retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "AI Diagnostic"
+                ],
+                "summary": "Buat AI diagnostic baru",
+                "operationId": "d98f5e279e309cf71e557eac7efa0878",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "diagnostic_id",
+                                    "symptoms"
+                                ],
+                                "properties": {
+                                    "diagnostic_id": {
+                                        "type": "integer"
+                                    },
+                                    "symptoms": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "AI Diagnostic created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/ai-diagnostics/{id}": {
+            "get": {
+                "tags": [
+                    "AI Diagnostic"
+                ],
+                "summary": "Get AI diagnostic by ID",
+                "operationId": "08e60f4158bd606a603bd9d32e4f977f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "AI Diagnostic retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "AI Diagnostic"
+                ],
+                "summary": "Hapus AI diagnostic",
+                "operationId": "7a1d40d57184854a95738aec18751ad9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "AI Diagnostic deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register user baru",
+                "operationId": "8a56853624e025573120a09a4c75d468",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Registrasi berhasil"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login user",
+                "operationId": "a3b306d14572d1f4bd6c064b3233e7b8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login berhasil"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout user",
+                "operationId": "fe8f3429cd6979b3b4517e186505f9f9",
+                "responses": {
+                    "200": {
+                        "description": "Logout berhasil"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/profile": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Get user profile",
+                "operationId": "d32e56b6274eb68e980da6d91fbe9fd8",
+                "responses": {
+                    "200": {
+                        "description": "Data user berhasil diambil"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/update": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Update profile user",
+                "operationId": "b8423619abf3ba75fe6142aed29a8eae",
+                "responses": {
+                    "200": {
+                        "description": "Profile berhasil diupdate"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/change-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Change password",
+                "operationId": "540baf9b2324b156be71c57911de6714",
+                "responses": {
+                    "200": {
+                        "description": "Password berhasil diubah"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/bengkels": {
+            "get": {
+                "tags": [
+                    "Bengkel"
+                ],
+                "summary": "Get semua bengkel",
+                "operationId": "798227e7b9a4af2a632de95f2cd9067a",
+                "responses": {
+                    "200": {
+                        "description": "Data bengkels retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Bengkel"
+                ],
+                "summary": "Tambah bengkel baru",
+                "operationId": "7f03be5f366260227f600f9f639ef025",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "address",
+                                    "phone",
+                                    "email",
+                                    "city",
+                                    "province",
+                                    "status",
+                                    "owner_name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "province": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "aktif",
+                                            "nonaktif"
+                                        ]
+                                    },
+                                    "owner_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Bengkel created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/bengkels/{id}": {
+            "get": {
+                "tags": [
+                    "Bengkel"
+                ],
+                "summary": "Get bengkel by ID",
+                "operationId": "d0e9e0d852ff4605acab68a600340e5a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Bengkel retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Bengkel"
+                ],
+                "summary": "Update bengkel",
+                "operationId": "24cc27ecab821c2a5e064206c907120c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Bengkel updated successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Bengkel"
+                ],
+                "summary": "Hapus bengkel",
+                "operationId": "cd6472412d29e9a4ea579c0d3eded0d7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Bengkel deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/diagnostics": {
+            "get": {
+                "tags": [
+                    "Diagnostic"
+                ],
+                "summary": "Get semua diagnostics",
+                "operationId": "6e7b767bc65c694579ba7584217e0c48",
+                "responses": {
+                    "200": {
+                        "description": "Data diagnostics retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Diagnostic"
+                ],
+                "summary": "Tambah diagnostic baru",
+                "operationId": "01615aeab16e9eadc3989c019c43e758",
+                "responses": {
+                    "201": {
+                        "description": "Diagnostic created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/diagnostics/{id}": {
+            "get": {
+                "tags": [
+                    "Diagnostic"
+                ],
+                "summary": "Get diagnostic by ID",
+                "operationId": "a73d84a382b0fe5903d8b68dea38c85c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Diagnostic retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Diagnostic"
+                ],
+                "summary": "Update diagnostic",
+                "operationId": "2ed4897c68c00406df6d356abc29736d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Diagnostic updated successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Diagnostic"
+                ],
+                "summary": "Hapus diagnostic",
+                "operationId": "365b6f7df30ea6540bf18cc79781a9ff",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Diagnostic deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/mechanics": {
+            "get": {
+                "tags": [
+                    "Mechanic"
+                ],
+                "summary": "Get semua mechanics",
+                "operationId": "69605d7ca31f7090676bce53082e6b53",
+                "responses": {
+                    "200": {
+                        "description": "Data mechanics retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Mechanic"
+                ],
+                "summary": "Tambah mechanic baru",
+                "operationId": "d846cf8c8757bc42b9db33d614b84835",
+                "responses": {
+                    "201": {
+                        "description": "Mechanic created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/mechanics/{id}": {
+            "get": {
+                "tags": [
+                    "Mechanic"
+                ],
+                "summary": "Get mechanic by ID",
+                "operationId": "2f2f188f2e98d656274fb57635bf58f4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mechanic retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Mechanic"
+                ],
+                "summary": "Update mechanic",
+                "operationId": "d266cd6279204989151816449c6f4d9d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mechanic updated successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Mechanic"
+                ],
+                "summary": "Hapus mechanic",
+                "operationId": "521f23c8478f1b7633cdbe2bc70ad6fa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mechanic deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/orders": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Get semua orders",
+                "operationId": "2cd7e03021e72d9d799c12dfe179c865",
+                "responses": {
+                    "200": {
+                        "description": "Data orders retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Tambah order baru",
+                "operationId": "d690d6834318e9b064df441e854de8b9",
+                "responses": {
+                    "201": {
+                        "description": "Order created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Get order by ID",
+                "operationId": "c29621029e70f65247909d3e09031118",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Order retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Update order",
+                "operationId": "6a7029f5510ca08e28a2d58a5fe19439",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Order updated successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Hapus order",
+                "operationId": "303a7b797887b66c7790c4c187b54790",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Order deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/order-items": {
+            "get": {
+                "tags": [
+                    "OrderItem"
+                ],
+                "summary": "Get semua order items",
+                "operationId": "6a6b106e104d558bfc813be8f4adf2f4",
+                "responses": {
+                    "200": {
+                        "description": "Data order items retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "OrderItem"
+                ],
+                "summary": "Tambah order item baru",
+                "operationId": "3390f5f422c701c6e520cc66e9d18037",
+                "responses": {
+                    "201": {
+                        "description": "Order item created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/order-items/{id}": {
+            "get": {
+                "tags": [
+                    "OrderItem"
+                ],
+                "summary": "Get order item by ID",
+                "operationId": "f75b95ab4f85b8772c2981a0d6e449bf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Order item retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "OrderItem"
+                ],
+                "summary": "Update order item",
+                "operationId": "c1778023c9a3ecbc744efb765d68415f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Order item updated successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "OrderItem"
+                ],
+                "summary": "Hapus order item",
+                "operationId": "87d21d8e8c19f5d96b514a9aa273dede",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Order item deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/ratings": {
+            "get": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "Get semua ratings",
+                "operationId": "ad64604c65f061cafbb78a893548ad91",
+                "responses": {
+                    "200": {
+                        "description": "Data ratings retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "Tambah rating baru",
+                "operationId": "e876bdaebd2a715619d9d19e8be09398",
+                "responses": {
+                    "201": {
+                        "description": "Rating created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/ratings/{id}": {
+            "get": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "Get rating by ID",
+                "operationId": "912afb9dee8f055dde51b69b3f5057d8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Rating retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "Update rating",
+                "operationId": "ad9719d294e6307635669e7607d83650",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Rating updated successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "Hapus rating",
+                "operationId": "9274dcb1681f116bde72d0ed39089fbf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Rating deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/services": {
+            "get": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Get semua services",
+                "operationId": "4c175c5d6594b4a5112bbe15a46e2bb4",
+                "responses": {
+                    "200": {
+                        "description": "Data services retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Tambah service baru",
+                "operationId": "b05b71c30267faa468172458580fb6fc",
+                "responses": {
+                    "201": {
+                        "description": "Service created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/services/{id}": {
+            "get": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Get service by ID",
+                "operationId": "42775b582b563bc36a9e06ae850100bf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Service retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Update service",
+                "operationId": "38f6a6cc2f5cd3dfdf39805e7fa21996",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Service updated successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Hapus service",
+                "operationId": "c189d6ab2d037e8fb4228a535ae6a399",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Service deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/spare-parts": {
+            "get": {
+                "tags": [
+                    "SparePart"
+                ],
+                "summary": "Get semua spare parts",
+                "operationId": "ad3e96ab1c0eb723d55852782c5e77a5",
+                "responses": {
+                    "200": {
+                        "description": "Data spare parts retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "SparePart"
+                ],
+                "summary": "Tambah spare part baru",
+                "operationId": "71f64eef3be34fc66b50c20dc4007bd8",
+                "responses": {
+                    "201": {
+                        "description": "Spare part created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/spare-parts/{id}": {
+            "get": {
+                "tags": [
+                    "SparePart"
+                ],
+                "summary": "Get spare part by ID",
+                "operationId": "2c51a53fb0f6ce5d55cddb481c80189e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Spare part retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "SparePart"
+                ],
+                "summary": "Update spare part",
+                "operationId": "d63cc7f3590786712b531f0f28308cfe",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Spare part updated successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "SparePart"
+                ],
+                "summary": "Hapus spare part",
+                "operationId": "dce9bf20261b71c98466735d943cfc8d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Spare part deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/transactions": {
+            "get": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "Get semua transactions",
+                "operationId": "6581469356772e7a74a0d79897544f1a",
+                "responses": {
+                    "200": {
+                        "description": "Data transactions retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "Tambah transaction baru",
+                "operationId": "ab765dced58cfe2f620929db31452145",
+                "responses": {
+                    "201": {
+                        "description": "Transaction created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/transactions/{id}": {
+            "get": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "Get transaction by ID",
+                "operationId": "b3d11351fb6ea87ee797d24314e3b7fa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "Update transaction",
+                "operationId": "a3de6e068b921a033fb998246070466a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction updated successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "Hapus transaction",
+                "operationId": "5b95ee78a4db85f35f43b2b4eea85447",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/vehicles": {
+            "get": {
+                "tags": [
+                    "Vehicle"
+                ],
+                "summary": "Get semua vehicles",
+                "operationId": "727634867f59796290a2fff276979198",
+                "responses": {
+                    "200": {
+                        "description": "Data vehicles retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Vehicle"
+                ],
+                "summary": "Tambah vehicle baru",
+                "operationId": "a88e0bca4193c91e713d0441659d199c",
+                "responses": {
+                    "201": {
+                        "description": "Vehicle created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/vehicles/{id}": {
+            "get": {
+                "tags": [
+                    "Vehicle"
+                ],
+                "summary": "Get vehicle by ID",
+                "operationId": "0185374b4b707b85ca8a97a6f5f366e1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Vehicle retrieved successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Vehicle"
+                ],
+                "summary": "Update vehicle",
+                "operationId": "c4d991b5c398a7ccd4e73f9a81c355d5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Vehicle updated successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Vehicle"
+                ],
+                "summary": "Hapus vehicle",
+                "operationId": "3442f99c22f47affb335443ef012e712",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Vehicle deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "token": {
+                "type": "http",
+                "name": "Token",
+                "in": "header",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "AI Diagnostic",
+            "description": "AI Diagnostic"
+        },
+        {
+            "name": "Auth",
+            "description": "Auth"
+        },
+        {
+            "name": "Bengkel",
+            "description": "Bengkel"
+        },
+        {
+            "name": "Diagnostic",
+            "description": "Diagnostic"
+        },
+        {
+            "name": "Mechanic",
+            "description": "Mechanic"
+        },
+        {
+            "name": "Order",
+            "description": "Order"
+        },
+        {
+            "name": "OrderItem",
+            "description": "OrderItem"
+        },
+        {
+            "name": "Rating",
+            "description": "Rating"
+        },
+        {
+            "name": "Service",
+            "description": "Service"
+        },
+        {
+            "name": "SparePart",
+            "description": "SparePart"
+        },
+        {
+            "name": "Transaction",
+            "description": "Transaction"
+        },
+        {
+            "name": "Vehicle",
+            "description": "Vehicle"
+        }
+    ]
+}

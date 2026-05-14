@@ -10,17 +10,17 @@ return new class extends Migration
     {
         Schema::create('spare_parts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('bengkel_id')->constrained('bengkels')->onDelete('cascade');
             $table->string('name');
-            $table->string('code')->unique();
-            $table->text('description')->nullable();
-            $table->decimal('price', 12, 2);
+            $table->string('code')->nullable();
+            $table->string('category')->nullable();
+            $table->string('brand')->nullable();
+            $table->decimal('price', 12, 2)->default(0);
             $table->integer('stock')->default(0);
             $table->integer('min_stock')->default(5);
-            $table->string('category');
-            $table->string('manufacturer')->nullable();
-            $table->string('supplier')->nullable();
-            $table->enum('status', ['aktif', 'discontinued'])->default('aktif');
-            $table->timestamp('last_restock')->nullable();
+            $table->string('unit')->default('pcs');
+            $table->enum('status', ['tersedia', 'habis', 'discontinue'])->default('tersedia');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
